@@ -1,7 +1,7 @@
 '''
 A collection of xfoil tools for use in python.
 Not realy a class, more a collection of usefull functions. The class structure
-is used to keep track of filenames, folders and so on for all the helper
+is used to keep track of filenames, folders and so on for all the helper 
 functions in the class.
 
 '''
@@ -19,10 +19,10 @@ class xfoiltools:
         save_name = self.save_dir + airfoilname + '_refined.dat'
         with open(self.xfoil_input, 'w') as f:
             f.write('PLOP\ng\n\n')
-            f.write('load \n', load_name, '\n\n')
+            f.write('load \n' + load_name + '\n\n')
             f.write('gdes')
             if(dz > 0):
-                f.write('tgap\n', dz, '\n', dz_pos, '\n')
+                f.write('tgap\n' + str(dz) + '\n' + str(dz_pos) + '\n')
                 f.write('exec\n')
                 f.write('dero')
                 f.write('UNIT\n\n\n')
@@ -36,7 +36,7 @@ class xfoiltools:
 
             f.write('ppar\n')
             f.write('N\n')
-            f.write(noofpanels, '\n\n\n')
-            f.write('save\n', save_name, '\n\n')
+            f.write(str(noofpanels) + '\n\n\n')
+            f.write('save\n' + save_name + '\n\n')
             f.write('quit\n')
-        run('c:\\bernt\\bin\\xfoil\\xfoil.exe', input=self.xfoil_input)
+        run('c:\\bernt\\bin\\xfoil\\xfoil.exe <' + self.xfoil_input)
