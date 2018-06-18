@@ -12,7 +12,7 @@ class xfoiltools:
     def __init__(self, load_dir='.\\', save_dir='.\\'):
         self.load_dir = load_dir
         self.save_dir = save_dir
-        self.xfoil_input = './xfoil.inp'
+        self.xfoil_input = 'xfoil.inp'
 
     def Repanel_smooth(self, airfoilname, noofpanels, dz=0, dz_pos=0):
         load_name = self.load_dir + airfoilname + '.dat'
@@ -39,4 +39,4 @@ class xfoiltools:
             f.write(str(noofpanels) + '\n\n\n')
             f.write('save\n' + save_name + '\n\n')
             f.write('quit\n')
-        run('c:\\bernt\\bin\\xfoil\\xfoil.exe <' + self.xfoil_input)
+        run('c:\\bernt\\bin\\xfoil\\xfoil.exe', input=self.xfoil_input)

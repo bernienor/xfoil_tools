@@ -6,4 +6,4 @@ ag455ct02r.dat origins from http://airfoiltools.com/airfoil/details?airfoil=ag45
 
 import xfoil_tools as xfoil
 xf = xfoil.xfoiltools()
-xf.Repanel_smooth('ag455ct02r.dat', 400)
+xf.Repanel_smooth('ag455ct02r', 400)
